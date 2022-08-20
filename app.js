@@ -31,15 +31,15 @@ var busObject = {
 var boatObject = {
     vehicle: "Boat",
     imageUrl:
-      "https://images.unsplash.com/photo-1593351415075-3bac9f45c877?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9hdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60",
-  
+        "https://images.unsplash.com/photo-1593351415075-3bac9f45c877?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9hdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60",
+
     farePerKilo: 3,
     capacity: 4,
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eligendi veritatis expedita, dicta aut eum itaque ut tempora alias laudantium?",
-  };
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eligendi veritatis expedita, dicta aut eum itaque ut tempora alias laudantium?",
+};
 const allService = [
-    carObject, busObject, bikeObject,boatObject
+    carObject, busObject, bikeObject, boatObject
 ]
 
 function displayService(service) {
@@ -131,3 +131,18 @@ function calculateTotalCost(object) {
     console.log(taxValue);
     console.log(totalValue);
 }
+
+document.getElementById("src-btn").addEventListener("click", function () {
+    const inputValue = document.getElementById("search-field").value;
+
+    for (let i = 0; i < allService.length; i++) {
+        const element = allService[i];
+        if (inputValue.toLowerCase() == element.vehicle.toLowerCase()) {
+            document.getElementById("main-section").innerHTML = ""
+            displayService(element)
+            return;
+        }
+    }
+    alert("Please Input (bus,bike,car)name")
+
+})
