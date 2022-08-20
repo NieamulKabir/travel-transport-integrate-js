@@ -28,6 +28,19 @@ var busObject = {
     description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eligendi veritatis expedita, dicta aut eum itaque ut tempora alias laudantium?",
 };
+var boatObject = {
+    vehicle: "Boat",
+    imageUrl:
+      "https://images.unsplash.com/photo-1593351415075-3bac9f45c877?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9hdHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60",
+  
+    farePerKilo: 3,
+    capacity: 4,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga eligendi veritatis expedita, dicta aut eum itaque ut tempora alias laudantium?",
+  };
+const allService = [
+    carObject, busObject, bikeObject,boatObject
+]
 
 function displayService(service) {
     const mainSection = document.getElementById("main-section")
@@ -55,9 +68,13 @@ function displayService(service) {
   `
     mainSection.appendChild(div)
 }
-displayService(carObject)
-displayService(bikeObject)
-displayService(busObject)
+function displayAllService(serviceArray) {
+    for (let i = 0; i < serviceArray.length; i++) {
+        const element = serviceArray[i];
+        displayService(element)
+    }
+}
+displayAllService(allService)
 
 
 //handle booking
