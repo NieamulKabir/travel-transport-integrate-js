@@ -121,11 +121,11 @@ function calculateTotalCost(object) {
     const fareValue = document.getElementById("fare");
     const taxValue = document.getElementById("tax");
     const totalValue = document.getElementById("total");
-    fareValue.innerHTML = Number(distanceInput * quantityInput * object.farePerKilo)
+    fareValue.innerHTML = Number(distanceInput * quantityInput * object.farePerKilo).toFixed(2)
 
-    taxValue.innerHTML = Number(fareValue.innerHTML * .1)
+    taxValue.innerHTML = Number(fareValue.innerHTML * .1).toFixed(2)
 
-    totalValue.innerHTML = (Number(fareValue.innerHTML) + Number(taxValue.innerHTML))
+    totalValue.innerHTML = (Number(fareValue.innerHTML) + Number(taxValue.innerHTML)).toFixed(2)
 
     console.log(fareValue);
     console.log(taxValue);
